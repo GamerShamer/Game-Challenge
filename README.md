@@ -12,3 +12,8 @@ background will be a scrolling background to allow the level to be longer than t
 will be represented by multicolored diamonds. 
 The target audience for this game is elementary school-aged children because it will provide an appropriate level of
 difficulty. This game was inspired by a combination of games that the team members played as children.
+Roles:
+Lead Programmer-Noga Zaborowski
+UI/Graphics- Taylor Friedman
+QA- Claire Alvine
+Project Manager- Sherry Shenker
