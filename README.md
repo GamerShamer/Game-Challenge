@@ -6,14 +6,21 @@ avoid an object, it loses a life. The goal of the game is to reach the end of th
 The character will progress through levels that will increase in difficulty by changing the quantity of falling objects,
 changing the speed at which they descend, and adding obstacles to be avoided. There will also be ways for the character
 to gain points and power-ups throughout the levels, such as extra-lives and increased speed. The player’s score will be
-determined by the number of levels completed before all lives are lost.  
+determined by the number of levels completed before all lives are lost.
+
 The context for the game is a miner avoiding falling grey rocks in a cave, which will be an image background. There will be a start screen with a start button. The
 background will be a scrolling background to allow the level to be longer than the length of the screen. The power-ups
-will be represented by multicolored diamonds. 
+will be represented by multicolored diamonds.
+
 The target audience for this game is elementary school-aged children because it will provide an appropriate level of
 difficulty. This game was inspired by a combination of games that the team members played as children.
+
 Roles:
+
 Lead Programmer-Noga Zaborowski
+
 UI/Graphics- Taylor Friedman
+
 QA- Claire Alvine
+
 Project Manager- Sherry Shenker
