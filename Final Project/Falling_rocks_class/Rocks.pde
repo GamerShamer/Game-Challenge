@@ -11,7 +11,7 @@ class Rocks{
     xpos=random(0,width);
     //the rocks are given a random position between 0 and the width
     ypos=-d/2;
-    yspeed=random(5,10);
+    yspeed=random(3,6);
     life=255;
     c=color(200,life);
   }
@@ -27,7 +27,7 @@ class Rocks{
   }
   
   void update(){
-    if(ypos>=height-d/2){
+    if(ypos>=cave.height-d/2){
       yspeed=0;
       life-=5;
       c=color(200,life);

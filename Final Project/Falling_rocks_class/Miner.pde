@@ -1,22 +1,39 @@
 class Miner{
-  float xpos;
-  float ypos;
+  float x;
+  float y;
   PImage miner;
   
   Miner(){
-    xpos=100;
-    ypos=height;
+    x=100;
+    miner = loadImage("miner1b.png");
+    y=cave.height+675;
   }
   
   void display(){
-    miner = loadImage("miner1b.png");
-    
-    image(miner,xpos,ypos);
-    
+    pushMatrix();
+    scale(.4);
+    image(miner,x,y);
+    popMatrix();
+//    fill(255);
+//    rect(x,y,50,50);
   }
   
   void move(){
-    xpos++;
+    if (keyPressed){
+      if(key=='a'){
+        x-=5;
+      }
+      if(key=='d'){
+        x+=5;
+      }
+    }
+  }
+  
+  void intersect(Rocks r){
+    if(dist(x,y,r.xpos,r.ypos)<r.d/2){
+      life--;
+      println("hiu");
+    }
   }
   
 }
