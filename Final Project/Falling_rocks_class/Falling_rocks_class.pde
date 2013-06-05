@@ -2,6 +2,7 @@ ArrayList rock = new ArrayList();
 Miner m;
 PImage cave;
 PImage start;
+PImage GameStart;
 int life=10;
 boolean button=false;
 int x;
@@ -14,6 +15,7 @@ int[] colors=new int[count];
 void setup() {
   start = loadImage("cave.jpg");
   cave = loadImage("cave_2.jpg");
+  GameStart = loadImage("GameStart.png");
   m= new Miner();
   size(1600, cave.height);
 
@@ -24,7 +26,7 @@ void setup() {
 }
 
 void mousePressed() {
-  if (mouseX>width/2-50 && mouseX<width/2+50 && mouseY>height/2+50 && mouseY<height/2+150) {
+  if (mouseX>((width/2)-40) && mouseX<((width/2)+160) && mouseY>((height/2)-38) && mouseY<height/2+38) {
     button=!button;
   }
 }
@@ -32,15 +34,16 @@ void mousePressed() {
 void draw() {
   background(start);
   rectMode(CENTER);
+  image(GameStart,width/2-300,height/2-200,600,400);
   fill(0);
-  rect(width/2, height/2+50, 400, 400);
+  //rect(width/2, height/2+50, 400, 400);
   fill(255);
   textSize(30);
-  text("Game Name", width/2-80, height/2);
+  //text("Game Name", width/2-80, height/2);
   fill(8,100,98);
-  rect(width/2, height/2+100, 300, 75);
+  rect(width/2+60, height/2, 200, 75);
   fill(0);
-  text("Start Game", width/2-80, height/2+100);
+  text("Start Game", width/2 - 20, height/2);
   //this is all setup for the start screen
   //the start screen has a black square with the name of the game and a start button
   //when the start buton is pressed, the start screen will disappear and the rocks will begin to fall 
@@ -82,4 +85,3 @@ void draw() {
     
   }
 }
-
