@@ -1,11 +1,11 @@
 Miner m;
 PImage cave;
 PImage start;
-<<<<<<< HEAD
-PImage GameStart;
-=======
+
+PFont font;
+
 PImage box;
->>>>>>> game with faulty background
+
 int life=10;
 int level;
 int count=6;
@@ -21,13 +21,11 @@ ArrayList gem = new ArrayList();
 
 void setup() {
   start = loadImage("cave.jpg");
-<<<<<<< HEAD
-  cave = loadImage("cave_2.jpg");
-  GameStart = loadImage("GameStart.png");
-=======
+
   cave = loadImage("cave with sign.jpg");
-  box= loadImage("GameStart.png");
->>>>>>> game with faulty background
+  box = loadImage("GameStart.png");
+
+
   m= new Miner();
   size(1600, cave.height);
   level=1;
@@ -38,41 +36,31 @@ void setup() {
 }
 
 void mousePressed() {
-<<<<<<< HEAD
+
   if (mouseX>((width/2)-40) && mouseX<((width/2)+160) && mouseY>((height/2)-38) && mouseY<height/2+38) {
     button=!button;
-=======
-  if (mouseX>=((width/2)-40)&& (mouseX<=((width/2)+160))&&(mouseY>=((height/2)-(75/2)))&& (mouseY<=((height/2)+(75/2)))) {
-    button=true;
->>>>>>> game with faulty background
   }
 }
 
 void draw() {
   background(start);
   rectMode(CENTER);
-<<<<<<< HEAD
-  image(GameStart,width/2-300,height/2-200,600,400);
-  fill(0);
-  //rect(width/2, height/2+50, 400, 400);
-  fill(255);
-  textSize(30);
-  //text("Game Name", width/2-80, height/2);
-  fill(8,100,98);
-=======
-  //  fill(0);
-  //  rect(width/2, height/2+50, 400, 400);
   image(box, width/2-300, height/2-200, 600, 400);
-  //  fill(255);
   textSize(30);
-  //  text("Game Name", width/2-80, height/2);
   fill(8, 100, 98);
->>>>>>> game with faulty background
   rect(width/2+60, height/2, 200, 75);
   fill(0);
   text("Start Game", width/2 - 20, height/2);
+  pushStyle();
+  font = loadFont("BodoniMTCondensed-Bold-18.vlw");
+  textFont(font);
+  //textSize(15);
+  text("Instructions: Get to the other side of the cave by...", width/2-90,height/2+80);
+  text("Pressing 'a' to move to the left and 'd' to move to the right.", width/2-125, height/2+110);
+  text("Avoid rocks and collect gems!", width/2-20,height/2+140);
+  popStyle();
   //this is all setup for the start screen
-  //the start screen has a black square with the name of the game and a start button
+  //the start screen has a gray square with the name of the game and a start button
   //when the start buton is pressed, the start screen will disappear and the rocks will begin to fall 
   time=millis();
   if (button) {
@@ -80,11 +68,11 @@ void draw() {
       x= constrain(x, 0, cave.width-width);
       image(cave, -x, 0);
       //x=time in this level * .1
-      x=(time-past)/10;
+      x=(time)/10;
     }
     if (finish) {
       x=0;
-      past=time;
+      //      past=time;
     }
     if (frameCount%20==0) {
       rock.add(new Rocks());
@@ -126,3 +114,4 @@ void draw() {
   }
   m.level();
 }
+

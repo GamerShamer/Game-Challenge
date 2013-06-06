@@ -32,7 +32,7 @@ class Miner {
   }
 
   void level() {
-    if (x+miner.width>=width) {
+    if (x+miner.width>=width-200) {
       x=0;
       level++;
       finish=true;
