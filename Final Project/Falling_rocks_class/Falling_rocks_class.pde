@@ -1,8 +1,13 @@
 Miner m;
 PImage cave;
 PImage start;
-
 PFont font;
+PImage GameWonMiner;
+//int a=100;
+//int b=100;
+//int c=400;
+//int d=350;
+
 
 PImage box;
 
@@ -25,6 +30,7 @@ void setup() {
   cave = loadImage("cave with sign.jpg");
   box = loadImage("GameStart.png");
 
+GameWonMiner=loadImage("miner1b.png");
 
   m= new Miner();
   size(1600, cave.height);
@@ -107,10 +113,36 @@ void draw() {
     textSize(32);
     text("Lives:"+life, 200, 200);
     textSize(50);
-    text("Level " + level, 800, 200);
+    text("Level " + level, 200, 150);
   }
   if (life<=0) {
     background(0);
+  }
+  if(level==3){
+     background(0);
+  rectMode(CENTER);
+  
+  //yellow box
+  fill(252,194,4);
+  rect(width/2,height/2,440,390);
+  
+  //blue box
+  fill(0,128,255);
+  rect(width/2,height/2,420,370);
+  
+  //gray box
+  fill(150);
+  rect(width/2,height/2,400,350);
+  
+  fill(255,0,0);
+textSize(64);
+ 
+  textFont(font);
+  text("You won!",790,340);
+  text("Great job!",785,400);
+  
+  
+  image(GameWonMiner,width/2-180,height/2-150,150,300);
   }
   //  m.level();
 }

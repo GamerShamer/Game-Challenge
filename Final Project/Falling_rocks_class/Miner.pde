@@ -74,19 +74,6 @@ class Miner {
     }
   }
   
-  boolean endgame(){
-    if(life==10){
-      
+  
 
-  //    println("Is " + r.ypos + " greater than " + y);
-  //    if (r.ypos > y) {
-  //      println("is lower than miner head");
-  //      if (r.xpos > x) {
-  //        println("is to the right of left side of miner's head");
-  //        if (r.xpos < (x + miner.width)) {
-  //          println("collision :3");
-  //        }
-  //      }
-  //      life--;
-}
-
+  }
