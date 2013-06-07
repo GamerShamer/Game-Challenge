@@ -43,28 +43,29 @@ void mousePressed() {
 }
 
 void draw() {
-  background(start);
-  rectMode(CENTER);
-  image(box, width/2-300, height/2-200, 600, 400);
-  textSize(30);
-  fill(8, 100, 98);
-  rect(width/2+60, height/2, 200, 75);
-  fill(0);
-  text("Start Game", width/2 - 20, height/2);
-  pushStyle();
-  font = loadFont("BodoniMTCondensed-Bold-18.vlw");
-  textFont(font);
-  //textSize(15);
-  text("Instructions: Get to the other side of the cave by...", width/2-90,height/2+80);
-  text("Pressing 'a' to move to the left and 'd' to move to the right.", width/2-125, height/2+110);
-  text("Avoid rocks and collect gems!", width/2-20,height/2+140);
-  popStyle();
+  if (!button) { 
+    background(start);
+    rectMode(CENTER);
+    image(box, width/2-300, height/2-200, 600, 400);
+    textSize(30);
+    fill(8, 100, 98);
+    rect(width/2+60, height/2, 200, 75);
+    fill(0);
+    text("Start Game", width/2 - 20, height/2);
+    pushStyle();
+    font = loadFont("BodoniMTCondensed-Bold-18.vlw");
+    textFont(font);
+    //textSize(15);
+    text("Instructions: Get to the other side of the cave by...", width/2-90, height/2+80);
+    text("Pressing 'a' to move to the left and 'd' to move to the right.", width/2-125, height/2+110);
+    text("Avoid rocks and collect gems!", width/2-20, height/2+140);
+    popStyle();
+  }
   //this is all setup for the start screen
   //the start screen has a gray square with the name of the game and a start button
-  //when the start buton is pressed, the start screen will disappear and the rocks will begin to fall 
-  time=millis();
-  if(m.level()){
-   x=0; 
+  //when the start button is pressed, the start screen will disappear and the rocks will begin to fall 
+  if (m.level()) {
+    x=0;
   }
   if (button) {
     if (!finish) {  
@@ -72,10 +73,6 @@ void draw() {
       image(cave, -x, 0);
       //x=time in this level * .1
       x+=3;
-    }
-    if (finish) {
-      x=0;
-      //      past=time;
     }
     if (frameCount%20==0) {
       rock.add(new Rocks());
@@ -115,6 +112,6 @@ void draw() {
   if (life<=0) {
     background(0);
   }
-//  m.level();
+  //  m.level();
 }
 

@@ -73,6 +73,10 @@ class Miner {
       life++;
     }
   }
+  
+  boolean endgame(){
+    if(life==10){
+      
 
   //    println("Is " + r.ypos + " greater than " + y);
   //    if (r.ypos > y) {
