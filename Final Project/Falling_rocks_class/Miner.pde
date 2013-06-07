@@ -31,14 +31,16 @@ class Miner {
     }
   }
 
-  void level() {
-    if (x+miner.width>=width-200) {
+  boolean level() {
+    if (x+miner.width>=width) {
       x=0;
       level++;
       finish=true;
+      return true;
     }
-    if (x-miner.width<=0) {
+    else {
       finish=false;
+      return false;
     }
   }
 

@@ -63,12 +63,15 @@ void draw() {
   //the start screen has a gray square with the name of the game and a start button
   //when the start buton is pressed, the start screen will disappear and the rocks will begin to fall 
   time=millis();
+  if(m.level()){
+   x=0; 
+  }
   if (button) {
     if (!finish) {  
       x= constrain(x, 0, cave.width-width);
       image(cave, -x, 0);
       //x=time in this level * .1
-      x=(time)/10;
+      x+=3;
     }
     if (finish) {
       x=0;
@@ -112,6 +115,6 @@ void draw() {
   if (life<=0) {
     background(0);
   }
-  m.level();
+//  m.level();
 }
 
