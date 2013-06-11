@@ -7,7 +7,6 @@ class Emerald {
   float gravity;
   float life;
   int paint;
-  
   PImage pic;
   
 

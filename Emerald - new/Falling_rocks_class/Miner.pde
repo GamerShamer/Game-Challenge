@@ -24,9 +24,11 @@ class Miner {
     if (keyPressed) {
       if (key=='a') {
         x-=5;
+        //when 'a' is pressed, the miner moves to the left
       }
       if (key=='d') {
         x+=5;
+        //when 'd' is pressed, the miner moves to the right
       }
     }
   }
@@ -37,6 +39,7 @@ class Miner {
       level++;
       finish=true;
       return true;
+      //if the miner reaches a certain position (the end of level sign) the level increases
     }
     else {
       finish=false;
@@ -45,7 +48,7 @@ class Miner {
   }
 
   boolean loss(Rocks r) {
-    if ((r.ypos>=y)&&(r.ypos<y+6)&&(r.xpos<x+miner.width)&&(r.xpos>x)) {
+    if ((r.ypos>=y)&&(r.ypos<y+miner.height-(r.d*2))&&(r.xpos<x+miner.width)&&(r.xpos>x)) {
       return true;
     }
     else {
@@ -56,6 +59,7 @@ class Miner {
     if (loss(r)) {
       r.ypos=2000;
       life--;
+      //when the rocks and the miner intersect, a life is lost and the rock is removed from the screen
     }
   }
 
@@ -89,6 +93,7 @@ class Miner {
       g.y=3000;
       life++;
     }
+    //if the miner and an emerald intesect, you gain a life and the emerald is removed
   }
   
   
