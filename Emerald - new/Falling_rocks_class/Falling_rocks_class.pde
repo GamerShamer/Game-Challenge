@@ -3,6 +3,7 @@ PImage cave;
 PImage start;
 PFont font;
 PFont font2;
+PFont GameRestart;
 PFont ribbonfont;
 PImage GameWonMiner;
 PImage GameLostMiner;
@@ -172,6 +173,12 @@ void draw() {
     text("Game", 750, 340);
     text("Over", 755, 440);
     image(GameLostMiner, width/2-270, height/2-150, 150, 300);
+    pushStyle();
+    GameRestart=loadFont("CooperBlack-32.vlw");
+    textFont(GameRestart);
+    fill(0);
+    text("Click to restart", 720, 520);
+    popStyle();
     popStyle();
     fill(255);
     if(mousePressed){
@@ -203,8 +210,14 @@ void draw() {
     font2=loadFont("CooperBlack-64.vlw");
     textFont(font2);
     text("You won!", 740, 340);
-    text("Great job!", 735, 400);
+    text("Great job!", 735, 430);
     image(GameWonMiner, width/2-270, height/2-150, 150, 300);
+    pushStyle();
+    GameRestart=loadFont("CooperBlack-32.vlw");
+    textFont(GameRestart);
+    fill(0);
+    text("Click to restart", 770, 500);
+    popStyle();
     popStyle();
     if(mousePressed){
         button=!button;
