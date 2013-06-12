@@ -4,6 +4,7 @@ PImage start;
 PFont font;
 PFont font2;
 PFont ribbonfont;
+PFont GameRestart;
 PImage GameWonMiner;
 PImage GameLostMiner;
 PImage box;
@@ -42,7 +43,7 @@ void mousePressed() {
     button=!button;
     //the area in which this mousePressed is defined will become the start button
   }
- }
+}
 
 void draw() {
   if (!button) { 
@@ -137,7 +138,7 @@ void draw() {
     rect(width/2, 30, width, 60);    
     textSize(28);  
     fill(0);  
-    text("Levels:"+level, 100, 40);  
+    text("Level:"+level, 100, 40);  
     //this displays what level you are on, the level counter increases with each level
     text("Lives:"+life, 300, 40);        
     //this dispays how many lives you have
@@ -174,12 +175,18 @@ void draw() {
     image(GameLostMiner, width/2-270, height/2-150, 150, 300);
     popStyle();
     fill(255);
-    if(mousePressed){
-        button=!button;
-        life=5;
-        x=0;
-        setup();
-       //if you press anywhere on the screen the game restarts
+    pushStyle();
+    GameRestart=loadFont("CooperBlack-32.vlw");
+    textFont(GameRestart);
+    fill(0);
+    text("Click to restart", 720, 520);
+    popStyle();
+    if (mousePressed) {
+      button=!button;
+      life=5;
+      x=0;
+      setup();
+      //if you press anywhere on the screen the game restarts
     }
     //this is the game over screen, it appears if you lose all your lives
   }
@@ -203,15 +210,21 @@ void draw() {
     font2=loadFont("CooperBlack-64.vlw");
     textFont(font2);
     text("You won!", 740, 340);
-    text("Great job!", 735, 400);
+    text("Great job!", 735, 430);
     image(GameWonMiner, width/2-270, height/2-150, 150, 300);
     popStyle();
-    if(mousePressed){
-        button=!button;
-        life=5;
-        x=0;
-        setup();
-       //if you press anywhere on the screen the game restarts
+    pushStyle();
+    GameRestart=loadFont("CooperBlack-32.vlw");
+    textFont(GameRestart);
+    fill(0);
+    text("Click to restart", 770, 500);
+    popStyle();
+    if (mousePressed) {
+      button=!button;
+      life=5;
+      x=0;
+      setup();
+      //if you press anywhere on the screen the game restarts
     }
     //this is the screen that appears if you beat the game, this happens when you complete the 5th level and move on to the 6th
   }
