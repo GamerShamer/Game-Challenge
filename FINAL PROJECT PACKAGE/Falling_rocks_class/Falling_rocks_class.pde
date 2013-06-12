@@ -1,24 +1,30 @@
 Miner m;
+
 PImage cave;
 PImage start;
-PFont font;
-PFont font2;
-PFont ribbonfont;
-PFont GameRestart;
 PImage GameWonMiner;
 PImage GameLostMiner;
 PImage box;
 //these are all the images we used thoughout the game (except for the miner and emerald)
+PFont font;
+PFont font2;
+PFont ribbonfont;
+PFont GameRestart;
+//these are all the fonts we used throughout the game
 int life=5;
 int level;
 int count=6;
 int random;
 int time;
 int past;
+
 float x;
+
 boolean finish=false;
 boolean button=false;
+
 int[] colors=new int[count];
+
 ArrayList rock = new ArrayList();
 ArrayList gem = new ArrayList();
 ArrayList emerald = new ArrayList();
@@ -68,7 +74,6 @@ void draw() {
     pushStyle();
     font = loadFont("BodoniMTCondensed-Bold-18.vlw");
     textFont(font);
-    //textSize(15);
     text("Instructions: Get to the other side of the cave by...", width/2-90, height/2+80);
     text("Pressing 'a' to move to the left and 'd' to move to the right.", width/2-125, height/2+110);
     text("Avoid rocks and collect gems!", width/2-20, height/2+140);
@@ -88,9 +93,10 @@ void draw() {
       //x=time in this level * .1
       x+=3;
     }
+    //the screen moves according to this if statement
     if (frameCount%20==0) {
       rock.add(new Rocks());
-      //a new rock falls avery 20 frames
+      //a new rock falls every 20 frames
     }
     m.display();
     m.move();
@@ -109,18 +115,10 @@ void draw() {
     }
     random=int(random(0, colors.length));
     if (frameCount%150==0) {
-      //gem.add(new Gem(colors[random]));
       emerald.add(new Emerald(colors[random]));
       //a new emerald is added every 150 frames
     }
     for (int i=0; i<emerald.size(); i++) {
-      //      Gem g = (Gem) gem.get(i);
-      //      g.create();
-      //      m.gemcatch(g);
-      //      if (g.life==0) {
-      //        gem.remove(0);
-      //      }
-
       Emerald e = (Emerald) emerald.get(i);
       e.create();
       m.emeraldcatch(e);
@@ -228,6 +226,5 @@ void draw() {
     }
     //this is the screen that appears if you beat the game, this happens when you complete the 5th level and move on to the 6th
   }
-  //  m.level();
 }
 
